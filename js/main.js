@@ -77,10 +77,17 @@ function onCellaClick(){
     //22. associo un numero alla cella 
     const numCellaSingola = +this.dataset.numCellaSingola;
 
+    //parte counteer dei click
+    let  cellaClick = 0;
+
+    cella.addEventListener("click", function() {
+        cellaClick += 1;
+    });
+
     //23. controllo se il numero associato alla cella corrisponde a quello della bomba 
     if ( bomba.includes (numCellaSingola)){
         //24. mostro un avviso in caso l'utente abbia trovato una bomba
-        alert("Sei esploso!");
+        alert("Sei esploso! Il tuo punteggio è", cellaClick);
 
         //25. aggiungo una classe che si attiverà al momento del click
         this.classList.add("active", "bomba"); 
