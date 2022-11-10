@@ -6,7 +6,7 @@ const selezionaLivello = document.querySelector("[name='select-level']");
 //27. creo una variabile let della bomba 
 let bomba;
 
-const nCelle = 10;
+// const nCelle = 10;
 
 
 //2. attivo il bottone un event listner
@@ -30,7 +30,7 @@ btnPlay.addEventListener("click", function() {
  * 
  * @param {number} nCelle 
  */
-function generaGriglia(nCelle){
+function generaGriglia( nCelle ){
     //5. creo la variabile del contenitore padre
     const gridContainer = document.querySelector(".grid-container");
 
@@ -46,7 +46,7 @@ function generaGriglia(nCelle){
         const cella = document.createElement("div");
 
         //8. scrivo un calcolo per determinare la realizzazione di quante colonne per riga
-        const colonneRighe = Math.sqrt(nCelle);
+        const colonneRighe = Math.sqrt( nCelle );
         
         //9.assegno all'elemento creato gli stili e le classi
         cella.classList.add(".grid-cell");
