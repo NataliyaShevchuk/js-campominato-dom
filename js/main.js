@@ -6,6 +6,8 @@ const selezionaLivello = document.querySelector("[name='select-level']");
 //27. creo una variabile let della bomba 
 let bomba;
 
+let numeroCellaClick = 0;
+
 // const nCelle = 10;
 
 
@@ -49,7 +51,7 @@ function generaGriglia( nCelle ){
         const colonneRighe = Math.sqrt( nCelle );
         
         //9.assegno all'elemento creato gli stili e le classi
-        cella.classList.add(".grid-cell");
+        cella.classList.add("grid-cell");
         cella.style.width = 100 / colonneRighe + "%";
 
         //34. aggiungo un dataset alla cella per avere un riscontro positivo con la condizione delle bombe
@@ -71,29 +73,27 @@ function generaGriglia( nCelle ){
  * @this {HTMLElement}
  */
 function onCellaClick(){
+
+    numeroCellaClick = numeroCellaClick + 1;
+
     //13.Aggiungo l'azione del css
     this.classList.toggle("active");
 
     //22. associo un numero alla cella 
     const numCellaSingola = +this.dataset.numCellaSingola;
 
-    //parte counteer dei click
-    let  cellaClick = 0;
-
-    cella.addEventListener("click", function() {
-        cellaClick += 1;
-    });
+    console.log('numer', numCellaSingola);
 
     //23. controllo se il numero associato alla cella corrisponde a quello della bomba 
     if ( bomba.includes (numCellaSingola)){
         //24. mostro un avviso in caso l'utente abbia trovato una bomba
-        alert("Sei esploso! Il tuo punteggio è", cellaClick);
+        alert("Sei esploso! Il tuo punteggio è " + numeroCellaClick);
 
         //25. aggiungo una classe che si attiverà al momento del click
         this.classList.add("active", "bomba"); 
     }else{
         //26. aggiungo una classe che mostrerà lo stile della cella senza bomba
-        this.classList.toggle("active");
+        //this.classList.toggle("active");
     }
 }
 
